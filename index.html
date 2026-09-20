@@ -9,19 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --dark:      #0d0f14;
-      --dark-2:    #13161e;
-      --dark-3:    #1a1e2a;
-      --dark-card: #1e2230;
-      --blue:      #1d6ef5;
-      --blue-2:    #2b7fff;
-      --blue-dim:  rgba(29,110,245,0.15);
-      --blue-glow: rgba(29,110,245,0.25);
+      --dark:      #090b10;
+      --dark-2:    #10141b;
+      --dark-3:    #171d27;
+      --dark-card: #1b222d;
+      --blue:      #3b82f6;
+      --blue-2:    #7db3ff;
+      --blue-dim:  rgba(255,255,255,0.06);
+      --blue-glow: rgba(59,130,246,0.28);
       --white:     #ffffff;
-      --off:       #c8d4e8;
-      --muted:     #7a8baa;
+      --off:       #dce6f5;
+      --muted:     #8494ad;
       --border:    rgba(255,255,255,0.07);
-      --border-b:  rgba(29,110,245,0.3);
+      --border-b:  rgba(255,255,255,0.14);
       --radius:    6px;
       --radius-lg: 12px;
       --max:       1200px;
@@ -42,10 +42,11 @@
 
     /* ─── TOPBAR ─── */
     .topbar{
-      background:var(--blue);
-      padding:0.45rem 1.5rem;
+      background:linear-gradient(90deg,#2563c7,var(--blue),#2563c7);
+      padding:0.55rem 1.5rem;
       font-size:0.78rem;
       letter-spacing:0.04em;
+      box-shadow:0 1px 0 rgba(255,255,255,.12);
     }
     .topbar-inner{
       max-width:var(--max);margin:auto;
@@ -60,24 +61,27 @@
     /* ─── NAV ─── */
     .nav{
       position:sticky;top:0;z-index:100;
-      background:var(--dark-2);
-      border-bottom:1px solid var(--border);
+      background:rgba(16,20,27,.94);
+      border-bottom:1px solid rgba(125,179,255,.16);
+      backdrop-filter:blur(16px);
+      box-shadow:0 12px 35px rgba(0,0,0,.2);
     }
     .nav-inner{
       max-width:var(--max);margin:auto;
-      padding:.85rem 1.5rem;
+      padding:.7rem 1.5rem;
       display:flex;justify-content:space-between;align-items:center;gap:1rem;
     }
-    .brand{display:flex;align-items:center;gap:.85rem}
+    .brand{display:flex;align-items:center;gap:.9rem}
     .brand-logo{
-      width:54px;height:54px;border-radius:999px;
-      border:2px solid var(--blue);overflow:hidden;
+      width:58px;height:58px;border-radius:999px;
+      border:2px solid var(--blue-2);overflow:hidden;
       background:var(--dark-3);flex-shrink:0;
+      box-shadow:0 0 0 5px rgba(59,130,246,.1),0 5px 18px rgba(0,0,0,.25);
     }
     .brand-logo img{width:100%;height:100%;object-fit:cover}
     .brand-text strong{
       display:block;font-family:'Barlow Condensed',sans-serif;
-      font-size:1.25rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+      font-size:1.35rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase;
     }
     .brand-text span{
       display:block;font-size:.7rem;color:var(--muted);margin-top:.05rem;
@@ -88,7 +92,12 @@
       font-family:'Barlow Condensed',sans-serif;
       font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--off);
     }
-    .nav-links a{transition:color 160ms}
+    .nav-links a{position:relative;transition:color 160ms}
+    .nav-links a::after{
+      content:"";position:absolute;left:0;right:0;bottom:-.45rem;height:2px;
+      background:var(--blue-2);transform:scaleX(0);transform-origin:center;transition:transform 180ms ease;
+    }
+    .nav-links a:hover::after{transform:scaleX(1)}
     .nav-links a:hover{color:var(--blue-2)}
     .btn{
       display:inline-flex;align-items:center;gap:.4rem;
@@ -96,12 +105,24 @@
       padding:.72rem 1.4rem;
       font-family:'Barlow Condensed',sans-serif;
       font-size:.9rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-      cursor:pointer;border:none;transition:all 180ms ease;white-space:nowrap;
+      cursor:pointer;border:none;transition:transform 180ms ease,background 180ms ease,box-shadow 180ms ease;white-space:nowrap;
+      position:relative;overflow:hidden;
     }
+    .btn::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.2) 50%,transparent 75%);
+      transform:translateX(-130%);transition:transform 500ms ease;
+    }
+    .btn:hover::after{transform:translateX(130%)}
     .btn-blue{background:var(--blue);color:#fff;box-shadow:0 4px 18px var(--blue-glow)}
     .btn-blue:hover{background:var(--blue-2);transform:translateY(-1px);box-shadow:0 6px 24px var(--blue-glow)}
     .btn-ghost{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.2)}
     .btn-ghost:hover{border-color:var(--blue);color:var(--blue-2)}
+    .nav-desktop-btn{padding:.82rem 1.7rem;box-shadow:0 7px 24px var(--blue-glow)}
+    .nav-desktop-btn::before{
+      content:"";width:6px;height:6px;border-radius:50%;background:#b9d7ff;
+      box-shadow:0 0 10px #b9d7ff;
+    }
 
     /* ─── HAMBURGER ─── */
     .hamburger{
@@ -149,25 +170,35 @@
       background:var(--dark-2);
       overflow:hidden;
     }
+    .slide-bg{
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;object-position:center;
+      z-index:0;filter:saturate(.88) contrast(1.04);
+      transform:scale(1.04);transition:transform 7s ease;
+    }
+    .slide:first-child .slide-bg{animation:hero-drift 14s ease-in-out infinite alternate}
+    @keyframes hero-drift{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.1) translate3d(-1%, -1%, 0)}}
     .slide::before{
       content:"";position:absolute;inset:0;
-      background:linear-gradient(120deg,rgba(13,15,20,.95) 40%,rgba(29,110,245,.12) 100%);
+      background:linear-gradient(90deg,rgba(9,11,16,.94) 0%,rgba(9,11,16,.78) 42%,rgba(9,11,16,.38) 100%);
       z-index:1;
     }
     .slide-stripe{
       position:absolute;top:0;right:0;bottom:0;width:52%;
-      background:linear-gradient(135deg,transparent 0%,var(--dark-3) 40%,var(--dark-3) 100%);
+      background:linear-gradient(135deg,transparent 0%,rgba(23,29,39,.78) 40%,rgba(23,29,39,.92) 100%);
       clip-path:polygon(12% 0,100% 0,100% 100%,0 100%);
       z-index:0;border-left:3px solid var(--blue);
     }
     .slide-stripe::after{
       content:"";position:absolute;inset:0;
-      background:radial-gradient(ellipse 80% 80% at 80% 50%,rgba(29,110,245,.13),transparent 70%);
+      background:radial-gradient(ellipse 80% 80% at 80% 50%,rgba(59,130,246,.18),transparent 70%);
     }
     .slide-content{
       position:relative;z-index:2;
       max-width:var(--max);margin:auto;width:100%;
+      animation:slide-copy-in 700ms ease both;
     }
+    @keyframes slide-copy-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
     .slide-tag{
       display:inline-flex;align-items:center;gap:.5rem;
       font-family:'Barlow Condensed',sans-serif;
@@ -266,8 +297,8 @@
     }
     .media-showcase::before{
       content:"";position:absolute;inset:0;
-      background:radial-gradient(ellipse 70% 60% at 30% 40%,rgba(29,110,245,.18),transparent 60%),
-                 radial-gradient(ellipse 50% 50% at 80% 70%,rgba(29,110,245,.1),transparent 55%);
+      background:radial-gradient(ellipse 70% 60% at 30% 40%,rgba(59,130,246,.18),transparent 60%),
+                 radial-gradient(ellipse 50% 50% at 80% 70%,rgba(59,130,246,.1),transparent 55%);
     }
     .media-showcase-inner{
       position:relative;z-index:1;
@@ -277,7 +308,7 @@
     .play-ring{
       width:64px;height:64px;border-radius:999px;
       border:2px solid rgba(43,127,255,.6);
-      background:rgba(29,110,245,.15);
+      background:rgba(59,130,246,.15);
       display:flex;align-items:center;justify-content:center;
       position:relative;
     }
@@ -315,6 +346,12 @@
       transition:transform 220ms,box-shadow 220ms,border-color 220ms;
     }
     .svc-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.4);border-color:var(--border-b)}
+    .svc-card,.review-card,.info-card{
+      transition:transform 220ms ease,box-shadow 220ms ease,border-color 220ms ease;
+    }
+    .review-card:hover,.info-card:hover{
+      transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.24);
+    }
     .svc-thumb{
       width:100%;aspect-ratio:4/3;
       background:linear-gradient(135deg,var(--dark-3),#151c30);
@@ -323,7 +360,7 @@
     }
     .svc-thumb::after{
       content:"";position:absolute;inset:0;
-      background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(29,110,245,.12),transparent 60%);
+      background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(59,130,246,.12),transparent 60%);
     }
     .svc-thumb-icon{
       width:52px;height:52px;border-radius:999px;
@@ -440,62 +477,6 @@
     }
     .btn-white-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 
-    /* ─── PRICING ─── */
-    .pricing-section-wrap{background:var(--dark-2)}
-    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-    .price-card{
-      background:var(--dark-card);border:1px solid var(--border);
-      border-radius:var(--radius-lg);padding:2.2rem 2rem;
-      position:relative;overflow:hidden;
-      transition:border-color 220ms,transform 220ms;
-    }
-    .price-card:hover{border-color:var(--border-b);transform:translateY(-3px)}
-    .price-card.featured{background:var(--blue);border-color:var(--blue)}
-    .price-card.featured:hover{border-color:var(--blue-2);background:var(--blue-2)}
-    .price-card::before{
-      content:attr(data-label);
-      position:absolute;top:1.5rem;right:1.75rem;
-      font-family:'Barlow Condensed',sans-serif;
-      font-size:4rem;font-weight:900;letter-spacing:.02em;
-      color:rgba(255,255,255,.04);line-height:1;pointer-events:none;
-    }
-    .price-tag{
-      display:inline-block;
-      background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
-      border-radius:var(--radius);padding:.22rem .65rem;
-      font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;
-      letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:1.1rem;
-    }
-    .price-card:not(.featured) .price-tag{background:var(--blue-dim);border-color:var(--border-b);color:var(--blue-2)}
-    .price-card h3{
-      font-family:'Barlow Condensed',sans-serif;
-      font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-      color:var(--muted);margin-bottom:.75rem;
-    }
-    .price-card.featured h3{color:rgba(255,255,255,.75)}
-    .price-amount{
-      font-family:'Barlow Condensed',sans-serif;
-      font-size:3.6rem;font-weight:900;letter-spacing:.02em;line-height:1;
-      color:var(--blue-2);margin-bottom:.25rem;
-    }
-    .price-card.featured .price-amount{color:var(--white)}
-    .price-note{font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.4rem}
-    .price-card.featured .price-note{color:rgba(255,255,255,.6)}
-    .price-div{width:100%;height:1px;background:var(--border);margin:1.4rem 0}
-    .price-card.featured .price-div{background:rgba(255,255,255,.2)}
-    .price-detail{color:var(--muted);font-size:.86rem;font-weight:300;line-height:1.7}
-    .price-card.featured .price-detail{color:rgba(255,255,255,.82)}
-    .price-cta{
-      display:inline-flex;align-items:center;gap:.4rem;
-      margin-top:1.4rem;
-      font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;
-      letter-spacing:.1em;text-transform:uppercase;color:var(--blue-2);
-      cursor:pointer;background:none;border:none;
-      transition:gap 160ms;
-    }
-    .price-cta:hover{gap:.7rem}
-    .price-card.featured .price-cta{color:var(--white)}
-
     /* ─── REVIEWS ─── */
     .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
     .review-card{
@@ -541,9 +522,31 @@
       outline:none;transition:border-color 160ms,box-shadow 160ms;width:100%;
     }
     input::placeholder,textarea::placeholder{color:var(--muted)}
+    input[type=file]{
+      padding:.45rem;
+      cursor:pointer;
+      color:var(--muted);
+      border-style:dashed;
+    }
+    input[type=file]::file-selector-button{
+      margin-right:.7rem;
+      padding:.55rem .85rem;
+      border:1px solid rgba(125,179,255,.35);
+      border-radius:var(--radius);
+      background:rgba(59,130,246,.14);
+      color:var(--blue-2);
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+      cursor:pointer;
+      transition:background 160ms ease,border-color 160ms ease;
+    }
+    input[type=file]::file-selector-button:hover{
+      background:rgba(59,130,246,.24);
+      border-color:var(--blue-2);
+    }
     select option{background:var(--dark-3)}
     input:focus,textarea:focus,select:focus{
-      border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,110,245,.15);
+      border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,.15);
     }
     textarea{resize:vertical;min-height:110px}
     .form-submit-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:.2rem}
@@ -660,23 +663,27 @@
     }
 
     /* ─── REVEAL ─── */
-    .reveal{opacity:0;transform:translateY(20px);transition:opacity 550ms ease,transform 550ms ease}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 650ms ease,transform 650ms cubic-bezier(.2,.7,.2,1)}
     .reveal.visible{opacity:1;transform:translateY(0)}
     .reveal-d1{transition-delay:100ms}
     .reveal-d2{transition-delay:200ms}
     .reveal-d3{transition-delay:300ms}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+    }
 
     /* ─── RESPONSIVE ─── */
     @media(max-width:1024px){
       .about-grid,.why-grid,.results-grid,.contact-grid{grid-template-columns:1fr}
-      .services-grid,.pricing-grid,.reviews-grid{grid-template-columns:1fr 1fr}
+      .services-grid,.reviews-grid{grid-template-columns:1fr 1fr}
       .stats-inner{grid-template-columns:repeat(2,1fr)}
       .footer-top-inner{grid-template-columns:1fr 1fr}
     }
     @media(max-width:640px){
       .nav-links,.nav-desktop-btn{display:none}
       .hamburger{display:flex}
-      .services-grid,.pricing-grid,.reviews-grid,.form-row{grid-template-columns:1fr}
+      .services-grid,.reviews-grid,.form-row{grid-template-columns:1fr}
       .stats-inner{grid-template-columns:repeat(2,1fr)}
       .slide{min-height:75vh;padding:5rem 1.25rem 4rem}
       .hero-dots{bottom:1rem}
@@ -729,10 +736,9 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#results">Results</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Book</a>
+        <a href="#quote-form">Contact</a>
       </nav>
-      <button class="btn btn-blue nav-desktop-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+      <button class="btn btn-blue nav-desktop-btn" onclick="document.getElementById('booking-calendar').scrollIntoView({behavior:'smooth'})">Book</button>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -747,7 +753,6 @@
     <a href="#about" class="mobile-link">About</a>
     <a href="#services" class="mobile-link">Services</a>
     <a href="#results" class="mobile-link">Results</a>
-    <a href="#pricing" class="mobile-link">Pricing</a>
     <a href="#contact" class="mobile-link">Book Now</a>
     <a href="tel:6313797842" style="color:var(--blue-2);font-size:1.4rem;margin-top:.5rem">631-379-7842</a>
   </div>
@@ -757,40 +762,43 @@
     <div class="slides" id="slides">
 
       <div class="slide">
+        <img class="slide-bg" src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="BMW performance sedan" aria-hidden="true"/>
         <div class="slide-stripe"></div>
         <div class="slide-content">
           <div class="slide-tag">Long Island's Mobile Detail Experts</div>
           <h1>Mobile <span>Detailing</span> That Comes to You</h1>
-          <p>We bring the full detail experience straight to your driveway. Paint-safe wash, deep interior clean, no waiting around.</p>
+          <p>We bring a professional detailing experience directly to your driveway. Enjoy a careful exterior wash, a thorough interior clean, and convenient service at your home or office.</p>
           <div class="slide-btns">
-            <button class="btn btn-blue" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+            <button class="btn btn-blue" onclick="document.getElementById('booking-calendar').scrollIntoView({behavior:'smooth'})">Book Now</button>
             <button class="btn btn-ghost" onclick="document.getElementById('results').scrollIntoView({behavior:'smooth'})">See Our Work</button>
           </div>
         </div>
       </div>
 
       <div class="slide">
+        <img class="slide-bg" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="" aria-hidden="true"/>
         <div class="slide-stripe"></div>
         <div class="slide-content">
           <div class="slide-tag">Exterior Specialists</div>
-          <h1>Paint-Safe <span>Exterior</span> That Shines</h1>
-          <p>Meticulous exterior detailing that protects your paint, eliminates swirl marks, and delivers a deep, lasting gloss — starting at $120.</p>
+          <h1>Paint Safe <span>Exterior</span> That Shines</h1>
+          <p>Meticulous exterior detailing that protects your paint, reduces surface marks, and delivers a deep, lasting gloss. Services start at $120.</p>
           <div class="slide-btns">
-            <button class="btn btn-blue" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
+            <button class="btn btn-blue" onclick="document.getElementById('booking-calendar').scrollIntoView({behavior:'smooth'})">Book Now</button>
             <button class="btn btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">View Services</button>
           </div>
         </div>
       </div>
 
       <div class="slide">
+        <img class="slide-bg" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=2200&amp;q=85" alt="Porsche sports car" aria-hidden="true"/>
         <div class="slide-stripe"></div>
         <div class="slide-content">
-          <div class="slide-tag">Interior Refresh</div>
-          <h1>Interior <span>Deep Cleans</span> Done Right</h1>
-          <p>From pet hair to coffee stains — we handle it all. Send a pic of your interior and get a fast quote the same day.</p>
+          <div class="slide-tag">Interior Care</div>
+          <h1>Interior <span>Deep Cleaning</span> Done Right</h1>
+          <p>From pet hair to coffee stains, we handle every detail with care. Send us a photo of your interior for a prompt custom quote.</p>
           <div class="slide-btns">
-            <button class="btn btn-blue" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Text a Photo</button>
-            <button class="btn btn-ghost" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">DM on Instagram</button>
+            <button class="btn btn-blue" onclick="document.getElementById('quote-form').scrollIntoView({behavior:'smooth'})">Contact Us</button>
+            <button class="btn btn-ghost" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">View Our Instagram</button>
           </div>
         </div>
       </div>
@@ -820,7 +828,7 @@
         <div class="about-text">
           <div class="sec-kicker">Who We Are</div>
           <h2>Long Island's <span>Mobile Detail</span> Specialists</h2>
-          <p>Rick's Clean Whips is a mobile detailing service built for car people. We come to you — your driveway, your parking lot, wherever — and we treat every car like it's our own.</p>
+          <p>Rick's Clean Whips is a mobile detailing service built for car people. We come to your driveway, office, or parking lot and treat every vehicle with the same care we give our own.</p>
           <p>No overpriced shop. No waiting. Just clean results delivered fast. Send a couple pics of your car, get a quote the same day, and we'll book a time that works for you.</p>
           <div class="about-badges">
             <div class="badge">Paint-Safe Wash</div>
@@ -838,7 +846,7 @@
             <div class="play-ring">
               <svg width="22" height="22" fill="var(--blue-2)" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
-            <div class="media-caption">Before &amp; After — Full Detail</div>
+            <div class="media-caption">Before &amp; After, Full Detail</div>
             <div class="media-label">Video coming soon · Follow us on IG</div>
           </div>
         </div>
@@ -853,7 +861,7 @@
         <div>
           <div class="sec-kicker">What We Offer</div>
           <h2 class="sec-title">Our Main Services</h2>
-          <p class="sec-sub">Simple packages with real results. Final price based on your car's size and condition — text us a photo for an exact quote.</p>
+          <p class="sec-sub">Straightforward packages with professional results. Service recommendations are based on your vehicle's size and condition. Send us a photo for a custom recommendation.</p>
         </div>
         <span style="display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border-b);border-radius:6px;padding:.45rem .95rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-2);background:var(--blue-dim)" class="reveal reveal-d1">Serving All Long Island</span>
       </div>
@@ -911,7 +919,7 @@
         <div class="why-left reveal">
           <div class="sec-kicker">Why Rick's</div>
           <h2>Choose Rick's for <span>Unmatched</span> Results</h2>
-          <p>We combine real skill with a personal touch. Every car gets treated the right way — no shortcuts, no rushing, no BS. We're car people, and it shows in the work.</p>
+          <p>We combine technical skill with a personal touch. Every vehicle receives careful attention, thorough service, and a finish we are proud to stand behind.</p>
           <div class="why-features">
             <div class="why-feat">
               <div class="why-feat-icon">
@@ -972,7 +980,7 @@
         <div>
           <div class="sec-kicker">The Work</div>
           <h2 class="sec-title">Real Results</h2>
-          <p class="sec-sub">No filters. No edits. Just the actual work — see what clients are paying for on our Instagram.</p>
+          <p class="sec-sub">No filters and no edits. See the actual work and explore recent results on our Instagram.</p>
         </div>
         <button class="btn btn-ghost reveal reveal-d1" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">See More on IG →</button>
       </div>
@@ -1008,56 +1016,12 @@
           <div class="results-cta">
             <div class="sec-kicker" style="color:rgba(255,255,255,.7)">Want This?</div>
             <h3>Your Car Next.</h3>
-            <p>Send a pic of your car and your city — we'll get back to you with a quote fast.</p>
+            <p>Send a photo of your vehicle and your city. We will get back to you promptly with a quote.</p>
             <div class="results-cta-btns">
               <button class="btn-white" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
               <button class="btn-white-outline" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">DM on IG</button>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PRICING -->
-  <div class="pricing-section-wrap">
-    <div class="section" id="pricing">
-      <div class="sec-head reveal">
-        <div>
-          <div class="sec-kicker">Investment</div>
-          <h2 class="sec-title">Pricing</h2>
-          <p class="sec-sub">Starting prices — text a photo of your car for an exact quote. Add-ons available.</p>
-        </div>
-        <span style="display:inline-flex;align-items:center;border:1px solid var(--border-b);border-radius:6px;padding:.45rem .95rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-2);background:var(--blue-dim)" class="reveal reveal-d1">Add-ons Available</span>
-      </div>
-
-      <div class="pricing-grid reveal">
-        <div class="price-card" data-label="01">
-          <h3>Regular Exterior</h3>
-          <div class="price-amount">$120</div>
-          <div class="price-note">Starting at · price may vary</div>
-          <div class="price-div"></div>
-          <p class="price-detail">A thorough exterior detail that restores gloss and removes surface contamination. Final price adjusts for vehicle size, condition, and add-ons.</p>
-          <button class="price-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book this package →</button>
-        </div>
-
-        <div class="price-card featured" data-label="02">
-          <div class="price-tag">Most Popular</div>
-          <h3>Premium Exterior</h3>
-          <div class="price-amount">$150</div>
-          <div class="price-note">Starting at · price may vary</div>
-          <div class="price-div"></div>
-          <p class="price-detail">More thorough exterior detail for cars that need deeper cleaning and a longer-lasting, high-gloss finish.</p>
-          <button class="price-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book this package →</button>
-        </div>
-
-        <div class="price-card" data-label="03">
-          <h3>Shop / Mobile Detail</h3>
-          <div class="price-amount" style="font-size:2.6rem">$160–200</div>
-          <div class="price-note">Shop from $160 · Mobile from $200</div>
-          <div class="price-div"></div>
-          <p class="price-detail">Full interior and exterior detail either at the shop or at your location. Price depends on add-ons and overall condition.</p>
-          <button class="price-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book this package →</button>
         </div>
       </div>
     </div>
@@ -1088,7 +1052,7 @@
 
         <div class="review-card reveal reveal-d1">
           <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Booked same day and he showed up right on time. Interior was destroyed with pet hair — he got every single piece out. Unreal work."</p>
+          <p class="review-text">"I booked the same day and he arrived right on time. The interior was covered in pet hair, and he removed every piece. Excellent work."</p>
           <div class="reviewer">
             <div class="reviewer-avatar">SK</div>
             <div>
@@ -1118,65 +1082,56 @@
     <div class="section" id="contact">
       <div class="sec-head reveal">
         <div>
-          <div class="sec-kicker">Get in Touch</div>
-          <h2 class="sec-title">Book a Detail</h2>
-          <p class="sec-sub">Choose an available time below to book directly, or send a request if you need a custom quote.</p>
+          <div class="sec-kicker">Schedule Your Detail</div>
+          <h2 class="sec-title">Book Us</h2>
+          <p class="sec-sub">Choose an available time below to book your detail directly.</p>
         </div>
       </div>
 
-      <div class="calendar-card reveal">
+      <div class="calendar-card reveal" id="booking-calendar">
         <div class="calendar-card-head">
           <div>
-            <div class="calendar-card-title">Pick Your Time</div>
-            <div class="calendar-card-sub">Live availability — book your detail right here.</div>
+            <div class="calendar-card-title">Choose Your Service and Time</div>
+            <div class="calendar-card-sub">Select a service to see its estimated time, price, and live availability.</div>
           </div>
           <a class="calendar-link" href="https://cal.com/rickscleanwhips" target="_blank" rel="noopener">Open full calendar ↗</a>
         </div>
         <div id="cal-inline"></div>
       </div>
 
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-kicker">Custom Requests &amp; Questions</div>
+          <h2 class="sec-title">Contact Us</h2>
+          <p class="sec-sub">Use this form only for custom requests or questions. For regular bookings, please use the calendar above.</p>
+        </div>
+      </div>
+
       <div class="contact-grid">
-        <div class="form-card reveal">
-          <form id="book-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Your name" required/>
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone (text preferred)</label>
-                <input id="phone" type="tel" placeholder="631-379-7842" required/>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="vehicle">Vehicle</label>
-                <input id="vehicle" type="text" placeholder="2018 BMW 440i Gran Coupe"/>
-              </div>
-              <div class="form-group">
-                <label for="service">Service</label>
-                <select id="service">
-                  <option value="" disabled selected>Select a package</option>
-                  <option>Regular Exterior — from $120</option>
-                  <option>Premium Exterior — from $150</option>
-                  <option>Shop Detail — from $160</option>
-                  <option>Full Mobile Detail — from $200</option>
-                  <option>Not sure — need a quote</option>
-                </select>
-              </div>
+        <div class="form-card reveal" id="quote-form">
+          <form id="book-form" action="https://formspree.io/f/xaenenkq" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="Custom request or question, Rick's Clean Whips"/>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required/>
             </div>
             <div class="form-group">
-              <label for="location">Location</label>
-              <input id="location" type="text" placeholder="Town / neighborhood on Long Island"/>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="631-379-7842" required/>
             </div>
             <div class="form-group">
-              <label for="notes">Notes (condition, pets, stains, add-ons)</label>
-              <textarea id="notes" placeholder="Example: light pet hair, coffee stain, needs iron decon…"></textarea>
+              <label for="notes">Notes for your custom request or question</label>
+              <textarea id="notes" name="notes" placeholder="Tell us how we can help..." required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="attachments">Attachments (optional)</label>
+              <input id="attachments" name="attachments" type="file" multiple accept="image/*,.pdf"/>
+              <div class="form-note">Attach photos or documents that help explain your request.</div>
             </div>
             <div class="form-submit-row">
-              <button class="btn btn-blue" type="submit" id="submit-btn">Send Request →</button>
-              <div class="form-note">Or text: <strong style="color:var(--white)">631-379-7842</strong></div>
+              <button class="btn btn-blue" type="submit" id="submit-btn">Contact</button>
             </div>
+            <div class="form-note" id="form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
 
@@ -1184,7 +1139,7 @@
           <div class="info-card">
             <div class="info-label">Phone / Text</div>
             <div class="info-value"><a href="tel:6313797842">631-379-7842</a></div>
-            <div class="info-sub">Text is fastest — include a photo of your car.</div>
+            <div class="info-sub">Text is fastest. Include a photo of your vehicle.</div>
             <div class="avail">Available now</div>
           </div>
           <div class="info-card">
@@ -1200,7 +1155,7 @@
           <div class="info-card">
             <div class="info-label">Hours</div>
             <div class="info-value">Any Day · Any Time</div>
-            <div class="info-sub">Weekends and evenings included — we work around you.</div>
+            <div class="info-sub">Weekends and evenings are available to fit your schedule.</div>
           </div>
         </div>
       </div>
@@ -1213,7 +1168,7 @@
       <div class="footer-top-inner">
         <div class="footer-brand-col">
           <strong>Rick's Clean Whips</strong>
-          <p>Long Island's mobile detailing specialists. We come to you — paint-safe exterior washes, deep interior cleans, and full details at your door.</p>
+          <p>Long Island's mobile detailing specialists. We come to you for paint safe exterior washes, deep interior cleaning, and complete details at your door.</p>
           <div class="footer-social">
             <a href="https://www.instagram.com/rickscleanwhips" target="_blank" rel="noopener" title="Instagram">
               <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -1226,7 +1181,6 @@
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#results">Results</a></li>
-            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#contact">Book Now</a></li>
           </ul>
         </div>
@@ -1311,13 +1265,26 @@
     document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', closeMenu));
 
     // Form submit
-    document.getElementById('book-form').addEventListener('submit', function(e) {
+    document.getElementById('book-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       const btn = document.getElementById('submit-btn');
-      btn.textContent = 'Request Sent ✓';
-      btn.style.background = '#16a34a';
       btn.disabled = true;
-      setTimeout(() => { btn.textContent = 'Send Request →'; btn.style.background = ''; btn.disabled = false; }, 4000);
+      const status = document.getElementById('form-status');
+      status.textContent = 'Sending...';
+      try {
+        const response = await fetch(this.action, {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw new Error('Form submission failed');
+        this.reset();
+        btn.textContent = 'Sent ✓';
+        status.textContent = 'Thanks! Your message has been sent.';
+      } catch (error) {
+        status.textContent = 'Unable to send right now. Please text 631-379-7842.';
+        btn.disabled = false;
+      }
     });
 
     // Cal.com inline booking calendar
@@ -1356,9 +1323,10 @@
       layout: 'month_view'
     });
     Cal('ui', {
-      styles: { branding: { brandColor: '#1d6ef5' } },
+      styles: { branding: { brandColor: '#3b82f6' } },
       hideEventTypeDetails: false,
-      layout: 'month_view'
+      layout: 'month_view',
+      theme: 'dark'
     });
   </script>
 </body>
