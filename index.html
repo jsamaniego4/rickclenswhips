@@ -438,7 +438,33 @@
     .why-stat-label{color:var(--muted);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
 
     /* ─── RESULTS ─── */
-    .results-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:1.25rem}
+    .results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+    .work-photo{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;background:var(--dark-3)}
+    .work-video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;background:#000;pointer-events:none}
+    .work-video::-webkit-media-controls{display:none!important}
+    .results-grid > .results-cta{
+      grid-column:1/-1;width:100%;display:grid;
+      grid-template-columns:minmax(0,1fr) auto;column-gap:2rem;align-items:center;
+      padding:1.5rem 2rem;
+    }
+    .results-cta .sec-kicker,.results-cta h3,.results-cta p{grid-column:1}
+    .results-cta p{margin-bottom:0}
+    .results-cta .results-cta-btns{grid-column:2;grid-row:1/4}
+    .results-video,.showcase-photo{width:100%;min-width:0;align-self:start;container-type:inline-size}
+    /* Trim roughly two CSS inches from the portrait height; crop instead of stretching. */
+    .results-video .work-video,.showcase-photo .work-photo{
+      height:max(300px,calc(177.778cqw - 192px));aspect-ratio:auto;
+      object-fit:cover;object-position:center;background:transparent;
+    }
+    .results-featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:1.25rem}
+    .showcase-photo .work-photo{height:auto;aspect-ratio:3/4;object-fit:contain}
+    @media(min-width:1025px){
+      .results-featured .results-video{align-self:stretch;display:flex;flex-direction:column}
+      .results-featured .results-video .work-video{height:0;min-height:0;flex:1;aspect-ratio:auto}
+    }
+    .about-video{width:100%;max-width:400px;justify-self:center;align-self:start}
+    .video-card{min-width:0;transition:border-color 350ms,box-shadow 650ms,opacity 650ms,transform 650ms}
+    .video-card.is-playing{border-color:rgba(125,179,255,.55);box-shadow:0 0 32px rgba(59,130,246,.18)}
     .vid-card{
       border-radius:var(--radius-lg);overflow:hidden;
       background:var(--dark-card);border:1px solid var(--border);
@@ -450,7 +476,6 @@
       font-family:'Barlow Condensed',sans-serif;
       font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
     }
-    .results-side{display:grid;grid-template-rows:1fr auto;gap:1.25rem}
     .results-cta{
       background:var(--blue);border-radius:var(--radius-lg);padding:2rem 1.75rem;
     }
@@ -675,12 +700,14 @@
 
     /* ─── RESPONSIVE ─── */
     @media(max-width:1024px){
-      .about-grid,.why-grid,.results-grid,.contact-grid{grid-template-columns:1fr}
+      .about-grid,.why-grid,.results-grid,.results-featured,.contact-grid{grid-template-columns:1fr}
       .services-grid,.reviews-grid{grid-template-columns:1fr 1fr}
       .stats-inner{grid-template-columns:repeat(2,1fr)}
       .footer-top-inner{grid-template-columns:1fr 1fr}
     }
     @media(max-width:640px){
+      .results-grid > .results-cta{grid-template-columns:1fr;padding:1.5rem}
+      .results-cta .results-cta-btns{grid-column:1;grid-row:auto;margin-top:1.25rem}
       .nav-links,.nav-desktop-btn{display:none}
       .hamburger{display:flex}
       .services-grid,.reviews-grid,.form-row{grid-template-columns:1fr}
@@ -841,14 +868,12 @@
           </div>
         </div>
 
-        <div class="media-showcase reveal reveal-d2">
-          <div class="media-showcase-inner">
-            <div class="play-ring">
-              <svg width="22" height="22" fill="var(--blue-2)" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <div class="media-caption">Before &amp; After, Full Detail</div>
-            <div class="media-label">Video coming soon · Follow us on IG</div>
-          </div>
+        <div class="vid-card video-card about-video reveal reveal-d2">
+          <video class="work-video" data-scroll-video muted loop playsinline disablepictureinpicture disableremoteplayback tabindex="-1" preload="metadata" poster="assets/work/rick-detail-5664-stabilized-poster.jpg" aria-label="Watch Rick's detailing work">
+            <source src="assets/work/rick-detail-5664-stabilized.mp4" type="video/mp4"/>
+            Rick's detailing work.
+          </video>
+          <div class="vid-label">See Rick's Work in Action</div>
         </div>
       </div>
     </div>
@@ -986,43 +1011,48 @@
       </div>
 
       <div class="results-grid reveal">
-        <div class="vid-card">
-          <div class="media-showcase media-tall">
-            <div class="media-showcase-inner">
-              <div class="play-ring">
-                <svg width="22" height="22" fill="var(--blue-2)" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <div class="media-caption">Exterior Shine + Gloss</div>
-              <div class="media-label">Full exterior detail</div>
-            </div>
+        <figure class="vid-card">
+          <a href="assets/work/rick-detail-5659.jpg" target="_blank" rel="noopener" aria-label="View full photo of the blue Acura exterior">
+            <img class="work-photo" src="assets/work/rick-detail-5659.jpg" alt="Blue Acura with glossy paint and polished wheels after Rick's detail" width="1200" height="1600" loading="lazy" decoding="async"/>
+          </a>
+          <figcaption class="vid-label">Acura · Exterior Shine</figcaption>
+        </figure>
+
+        <figure class="vid-card">
+          <a href="assets/work/rick-detail-5769.jpg" target="_blank" rel="noopener" aria-label="View full photo of the BMW interior">
+            <img class="work-photo" src="assets/work/rick-detail-5769.jpg" alt="Detailed BMW interior with tan leather seats, clean dashboard, and center console" width="1200" height="1600" loading="lazy" decoding="async"/>
+          </a>
+          <figcaption class="vid-label">BMW · Interior Refresh</figcaption>
+        </figure>
+
+        <div class="results-cta">
+          <div class="sec-kicker" style="color:rgba(255,255,255,.7)">Want This?</div>
+          <h3>Your Car Next.</h3>
+          <p>Send a photo of your vehicle and your city. We will get back to you promptly with a quote.</p>
+          <div class="results-cta-btns">
+            <button class="btn-white" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
+            <button class="btn-white-outline" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">DM on IG</button>
           </div>
-          <div class="vid-label">Exterior Shine + Gloss</div>
         </div>
 
-        <div class="results-side">
-          <div class="vid-card">
-            <div class="media-showcase media-wide">
-              <div class="media-showcase-inner">
-                <div class="play-ring">
-                  <svg width="22" height="22" fill="var(--blue-2)" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-                <div class="media-caption">Interior Refresh</div>
-                <div class="media-label">Full interior deep clean</div>
-              </div>
-            </div>
-            <div class="vid-label">Interior Refresh</div>
-          </div>
+        <div class="results-featured">
+        <figure class="vid-card video-card results-video reveal">
+          <video class="work-video" data-scroll-video muted loop playsinline disablepictureinpicture disableremoteplayback tabindex="-1" preload="metadata" poster="assets/work/rick-detail-5376-poster.jpg" aria-label="Video of Rick's detailing work">
+            <source src="assets/work/rick-detail-5376.mp4" type="video/mp4"/>
+            Rick's detailing work.
+          </video>
+          <figcaption class="vid-label">A Closer Look · Rick's Work</figcaption>
+        </figure>
 
-          <div class="results-cta">
-            <div class="sec-kicker" style="color:rgba(255,255,255,.7)">Want This?</div>
-            <h3>Your Car Next.</h3>
-            <p>Send a photo of your vehicle and your city. We will get back to you promptly with a quote.</p>
-            <div class="results-cta-btns">
-              <button class="btn-white" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
-              <button class="btn-white-outline" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">DM on IG</button>
-            </div>
-          </div>
+        <figure class="vid-card showcase-photo reveal">
+          <a href="assets/work/rick-detail-5651.jpg" target="_blank" rel="noopener" aria-label="View full photo of the black BMW at night">
+            <img class="work-photo" src="assets/work/rick-detail-5651.jpg" alt="Black BMW under gas station lights at night, showing its glossy exterior" width="1800" height="2400" loading="lazy" decoding="async"/>
+          </a>
+          <figcaption class="vid-label">BMW · Nighttime Shine</figcaption>
+        </figure>
         </div>
+
+
       </div>
     </div>
   </div>
@@ -1217,6 +1247,36 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     reveals.forEach(el => obs.observe(el));
+
+    // Silent, non-interactive loops play on entry and pause offscreen.
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const scrollVideos = document.querySelectorAll('[data-scroll-video]');
+    const visibleVideos = new Set();
+    function syncVideo(video) {
+      if (visibleVideos.has(video) && !document.hidden && !motionPreference.matches) {
+        video.play().catch(() => {}); // Keep the poster visible if the browser blocks automatic playback.
+      } else {
+        video.pause();
+      }
+    }
+    const videoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.25) visibleVideos.add(entry.target);
+        else visibleVideos.delete(entry.target);
+        syncVideo(entry.target);
+      });
+    }, { threshold: [0, 0.25] });
+    scrollVideos.forEach(video => {
+      video.muted = true;
+      video.addEventListener('playing', () => {
+        if (!visibleVideos.has(video) || document.hidden) { video.pause(); return; }
+        video.closest('.video-card').classList.add('is-playing');
+      });
+      video.addEventListener('pause', () => video.closest('.video-card').classList.remove('is-playing'));
+      videoObserver.observe(video);
+    });
+    document.addEventListener('visibilitychange', () => scrollVideos.forEach(syncVideo));
+    motionPreference.addEventListener('change', () => scrollVideos.forEach(syncVideo));
 
     // Hero slider
     let cur = 0;
