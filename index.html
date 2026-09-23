@@ -54,9 +54,11 @@
     }
     .topbar-left{display:flex;gap:1.5rem;flex-wrap:wrap;opacity:.92}
     .topbar-left span{display:flex;align-items:center;gap:.4rem}
-    .topbar-social{display:flex;gap:1rem}
-    .topbar-social a{opacity:.85;transition:opacity 150ms}
-    .topbar-social a:hover{opacity:1}
+    .topbar-social{display:flex;gap:1rem;margin-left:auto}
+    .topbar-social a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;transition:transform 180ms,box-shadow 180ms}
+    .topbar-social a:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.2)}
+    .topbar-social a:focus-visible{outline:2px solid white;outline-offset:3px}
+    .topbar-social svg{display:block;width:34px;height:34px}
 
     /* ─── NAV ─── */
     .nav{
@@ -438,7 +440,7 @@
     .why-stat-label{color:var(--muted);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem}
 
     /* ─── RESULTS ─── */
-    .results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+    .results-grid{--gallery-gap:1.5rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gallery-gap);align-items:stretch}
     .work-photo{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;background:var(--dark-3)}
     .work-video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;background:#000;pointer-events:none}
     .work-video::-webkit-media-controls{display:none!important}
@@ -456,7 +458,7 @@
       height:max(300px,calc(177.778cqw - 192px));aspect-ratio:auto;
       object-fit:cover;object-position:center;background:transparent;
     }
-    .results-featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:1.25rem}
+    .results-featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:var(--gallery-gap);align-items:stretch}
     .showcase-photo .work-photo{height:auto;aspect-ratio:3/4;object-fit:contain}
     @media(min-width:1025px){
       .results-featured .results-video{align-self:stretch;display:flex;flex-direction:column}
@@ -467,17 +469,23 @@
     .video-card.is-playing{border-color:rgba(125,179,255,.55);box-shadow:0 0 32px rgba(59,130,246,.18)}
     .vid-card{
       border-radius:var(--radius-lg);overflow:hidden;
-      background:var(--dark-card);border:1px solid var(--border);
-      transition:border-color 220ms;
+      background:var(--dark-card);border:1px solid rgba(125,179,255,.2);
+      box-shadow:0 8px 24px rgba(0,0,0,.16);
+      transition:border-color 250ms,box-shadow 350ms;
     }
-    .vid-card:hover{border-color:var(--border-b)}
+    .vid-card:hover{border-color:rgba(125,179,255,.4)}
+    .vid-card > a{display:block}
+    .vid-card.video-card{transition:border-color 350ms,box-shadow 650ms,opacity 650ms,transform 650ms}
+    .vid-card.is-playing{border-color:rgba(125,179,255,.35);box-shadow:0 8px 24px rgba(0,0,0,.16)}
     .vid-label{
-      padding:.75rem 1rem;
+      display:flex;align-items:center;min-height:3.25rem;flex-shrink:0;
+      border-top:1px solid rgba(125,179,255,.14);
+      padding:.9rem 1.2rem;
       font-family:'Barlow Condensed',sans-serif;
       font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
     }
     .results-cta{
-      background:var(--blue);border-radius:var(--radius-lg);padding:2rem 1.75rem;
+      background:var(--blue);border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-lg);padding:2rem 1.75rem;
     }
     .results-cta h3{
       font-family:'Barlow Condensed',sans-serif;
@@ -503,6 +511,18 @@
     .btn-white-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 
     /* ─── REVIEWS ─── */
+    #review-pause[hidden],#review-slider[hidden]{display:none}
+    .review-slider{overflow:hidden;margin-top:1.5rem}
+    .review-track{display:flex;width:max-content;animation:reviews-scroll 40s linear infinite}
+    .review-group{display:flex;gap:1.25rem;padding-right:1.25rem;min-width:100vw}
+    .review-group .review-card{flex:1 0 min(340px,80vw);width:min(340px,80vw);max-width:440px}
+    .review-slider:hover .review-track,.review-slider:focus-within .review-track,.review-slider.is-paused .review-track{animation-play-state:paused}
+    @keyframes reviews-scroll{to{transform:translateX(-50%)}}
+    @media(prefers-reduced-motion:reduce){
+      .review-slider{overflow-x:auto}
+      .review-track{animation:none}
+      .review-group[aria-hidden="true"]{display:none}
+    }
     .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
     .review-card{
       background:var(--dark-card);border:1px solid var(--border);
@@ -740,8 +760,23 @@
         </span>
       </div>
       <div class="topbar-social">
-        <a href="https://www.instagram.com/rickscleanwhips" target="_blank" rel="noopener" title="Instagram">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        <a href="https://www.instagram.com/rickscleanwhips" target="_blank" rel="noopener" title="Instagram" aria-label="Visit Rick's Clean Whips on Instagram">
+          <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden="true">
+            <defs>
+              <radialGradient id="instagram-gradient" cx="30%" cy="105%" r="130%">
+                <stop offset="0" stop-color="#ffdc80"/>
+                <stop offset=".25" stop-color="#fcaf45"/>
+                <stop offset=".5" stop-color="#f77737"/>
+                <stop offset=".7" stop-color="#e1306c"/>
+                <stop offset=".9" stop-color="#833ab4"/>
+                <stop offset="1" stop-color="#405de6"/>
+              </radialGradient>
+            </defs>
+            <rect width="32" height="32" rx="8" fill="url(#instagram-gradient)"/>
+            <rect x="7" y="7" width="18" height="18" rx="5.5" fill="none" stroke="#fff" stroke-width="2"/>
+            <circle cx="16" cy="16" r="4.5" fill="none" stroke="#fff" stroke-width="2"/>
+            <circle cx="22" cy="10" r="1.35" fill="#fff"/>
+          </svg>
         </a>
       </div>
     </div>
@@ -1059,51 +1094,21 @@
 
   <!-- REVIEWS -->
   <div style="background:var(--dark)">
-    <div class="section">
+    <div class="section" id="reviews">
       <div class="sec-head reveal">
         <div>
           <div class="sec-kicker">What Clients Say</div>
-          <h2 class="sec-title">Reviews</h2>
+          <h2 class="sec-title">Google Reviews</h2>
+          <p class="sec-sub">See what customers are saying about Rick's Clean Whips on Google.</p>
         </div>
+        <a class="btn btn-blue" href="https://share.google/LTJ5YBNYbcaR9AiTS" target="_blank" rel="noopener">Read Reviews on Google ↗</a>
       </div>
-
-      <div class="reviews-grid">
-        <div class="review-card reveal">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Car came out absolutely perfect. Rick was quick, professional, and the results were insane. My paint looks better than when I bought it."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">JM</div>
-            <div>
-              <div class="reviewer-name">James M.</div>
-              <div class="reviewer-sub">Long Island, NY · Full Mobile Detail</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-d1">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"I booked the same day and he arrived right on time. The interior was covered in pet hair, and he removed every piece. Excellent work."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">SK</div>
-            <div>
-              <div class="reviewer-name">Sarah K.</div>
-              <div class="reviewer-sub">Long Island, NY · Interior Detail</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-d2">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Sent a few pics, got a quote in minutes, and he came out the next morning. Couldn't be easier. Car looks brand new. Will 100% be back."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">DL</div>
-            <div>
-              <div class="reviewer-name">Danny L.</div>
-              <div class="reviewer-sub">Long Island, NY · Premium Exterior</div>
-            </div>
-          </div>
-        </div>
+      <button class="btn btn-ghost" id="review-pause" type="button" aria-pressed="false" aria-controls="review-slider" hidden>Pause Reviews</button>
+      <div class="review-slider" id="review-slider" role="region" aria-label="Customer reviews" tabindex="0" hidden>
+        <div class="review-track" id="review-track"></div>
       </div>
+      <!-- Add verified reviews as {"name":"...","text":"...","rating":5}; never use placeholder testimonials. -->
+      <script type="application/json" id="verified-reviews">[]</script>
     </div>
   </div>
 
@@ -1178,6 +1183,11 @@
             <div class="info-sub">DM us for quotes, results, and bookings.</div>
           </div>
           <div class="info-card">
+            <div class="info-label">Find Us on Google</div>
+            <div class="info-value"><a href="https://share.google/LTJ5YBNYbcaR9AiTS" target="_blank" rel="noopener">Rick's Clean Whips ↗</a></div>
+            <div class="info-sub">Visit our Google Business profile for customer reviews.</div>
+          </div>
+          <div class="info-card">
             <div class="info-label">Service Area</div>
             <div class="info-value">All of Long Island, NY</div>
             <div class="info-sub">We come to your driveway, office, or anywhere on LI.</div>
@@ -1240,6 +1250,50 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Show the continuous slider only after verified review content has been supplied.
+    const reviewData = JSON.parse(document.getElementById('verified-reviews').textContent);
+    const verifiedReviews = reviewData.filter(review =>
+      typeof review.name === 'string' && review.name.trim() &&
+      typeof review.text === 'string' && review.text.trim() &&
+      Number.isInteger(review.rating) && review.rating >= 1 && review.rating <= 5);
+    if (verifiedReviews.length) {
+      const group = document.createElement('div');
+      group.className = 'review-group';
+      verifiedReviews.forEach(review => {
+        const card = document.createElement('article');
+        card.className = 'review-card';
+        const stars = document.createElement('div');
+        stars.className = 'review-stars';
+        stars.textContent = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+        stars.setAttribute('aria-label', review.rating + ' out of 5 stars');
+        const quote = document.createElement('p');
+        quote.className = 'review-text';
+        quote.textContent = review.text;
+        const author = document.createElement('div');
+        author.className = 'reviewer-name';
+        author.textContent = review.name;
+        const source = document.createElement('div');
+        source.className = 'reviewer-sub';
+        source.textContent = 'Google review';
+        card.append(stars, quote, author, source);
+        group.append(card);
+      });
+      const copy = group.cloneNode(true);
+      copy.setAttribute('aria-hidden', 'true');
+      copy.setAttribute('inert', '');
+      document.getElementById('review-track').append(group, copy);
+      const slider = document.getElementById('review-slider');
+      const pause = document.getElementById('review-pause');
+      slider.hidden = false;
+      pause.hidden = false;
+      pause.addEventListener('click', () => {
+        const paused = slider.classList.toggle('is-paused');
+        pause.setAttribute('aria-pressed', String(paused));
+        pause.textContent = paused ? 'Resume Reviews' : 'Pause Reviews';
+      });
+    }
+
 
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
