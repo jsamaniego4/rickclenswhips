@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mobile car detailing across Long Island. Exterior packages from $120 and full mobile details from $200. Explore Rick’s work and book online."/>
   <title>Rick's Clean Whips | Mobile Detailing · Long Island, NY</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -738,9 +739,173 @@
       .topbar-left{display:none}
       .float-cta{bottom:1.25rem;right:1.25rem}
     }
+
+    /* Refined local photography and a clear booking path. */
+    :root{--muted:#a1aec2;--radius:8px;--radius-lg:16px}
+    [id]{scroll-margin-top:105px}
+    :focus-visible{outline:2px solid var(--blue-2);outline-offset:5px}
+    .skip-link{position:fixed;top:8px;left:8px;z-index:200;background:white;color:var(--dark);padding:12px;transform:translateY(-160%)}
+    .skip-link:focus{transform:none}
+    .topbar{background:#142642;padding:.2rem 1.5rem}
+    .topbar-social a{width:34px;height:34px}.topbar-social svg{width:23px;height:23px}
+    .nav,.brand-logo,.btn-blue{box-shadow:none}
+    .btn::after{display:none}
+    .btn{letter-spacing:.07em;padding:.9rem 1.4rem}
+    .hero{background:linear-gradient(135deg,#101927,#090b10 65%)}
+    .hero-layout{max-width:1200px;margin:auto;padding:3rem 1.5rem;display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center}
+    .hero-copy h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4rem,7.6vw,7rem);font-weight:800;text-transform:uppercase;line-height:.96;letter-spacing:-.02em;margin:0 0 1.5rem}
+    .hero-copy h1 span{color:var(--blue-2)}
+    .hero-copy>p{max-width:440px;font-size:1.1rem;color:var(--off);margin-bottom:2rem;line-height:1.75}
+    .hero-details{display:flex;gap:.7rem 1.25rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;margin-top:2rem}
+    .hero-details span::before{content:'✓';color:var(--blue-2);margin-right:.45rem}
+    .hero-photo{position:relative;overflow:hidden;border-radius:120px 16px 16px 16px;border:1px solid var(--border-b)}
+    .hero-photo img{width:100%;height:550px;object-fit:cover}
+    .hero-photo figcaption{position:absolute;bottom:0;left:0;right:0;padding:4rem 1.75rem 1.75rem;background:linear-gradient(transparent,rgba(0,0,0,.88))}
+    .hero-photo figcaption span{display:block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#dce6f5}
+    .hero-photo figcaption strong{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;text-transform:uppercase}
+    .hero-bottom{max-width:1152px;margin:auto;padding:1.25rem 0;border-top:1px solid var(--border-b);display:flex;justify-content:space-between;gap:1rem;font-size:.75rem;letter-spacing:.1em;color:var(--muted)}
+    .hero-bottom a{color:var(--blue-2)}
+    .sec-sub,.about-text p,.svc-card p{font-weight:400}
+    .svc-image{width:100%;height:220px;object-fit:cover}
+    .svc-card{display:flex;flex-direction:column}
+    .svc-body{display:flex;flex:1;flex-direction:column}.svc-body p{margin-bottom:1.5rem}
+    .service-link{display:flex;justify-content:space-between;gap:.5rem;margin-top:auto;padding-top:1rem;border-top:1px solid var(--border-b);font-size:.85rem;color:var(--blue-2);font-weight:600}
+    .svc-price{font-size:2.2rem;margin-bottom:.8rem}
+    .availability-link{display:inline-block;margin-top:1rem;font-size:.85rem;color:var(--blue-2)}
+    .reveal{opacity:1;transform:none}
+    @media(max-width:1024px){.nav-links{gap:.8rem}.brand-text strong{font-size:1.15rem}.hero-layout{gap:1.5rem}.hero-photo img{height:490px}.hero-bottom{margin:0 1.5rem}}
+    @media(max-width:800px){.nav-links,.nav-desktop-btn{display:none}.hamburger{display:flex}.hero-layout{grid-template-columns:1fr;padding-top:2.5rem}.hero-copy h1{font-size:clamp(3.7rem,12vw,6rem)}.hero-photo{border-radius:64px 12px 12px 12px}.hero-photo img{height:420px;object-position:center 55%}.hero-details{margin-top:1.5rem}.services-grid{grid-template-columns:1fr}.hero-bottom{font-size:.65rem;letter-spacing:.04em}.section{padding:3.5rem 1.25rem}}
+    @media(max-width:420px){.hero-photo img{height:340px}.hero-bottom{flex-direction:column}.brand-text span{font-size:.6rem}.brand-logo{width:46px;height:46px}}
+
+    /* A compact, edge-to-edge portfolio viewer. */
+    .work-carousel{grid-column:1/-1;min-width:0;width:100%;max-width:980px;margin:0 auto}
+    .work-stage{position:relative}
+    .work-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;border-radius:20px;background:var(--dark-2);box-shadow:0 24px 64px rgba(0,0,0,.28)}
+    .work-track::-webkit-scrollbar{display:none}
+    .work-track>.vid-card{position:relative;flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;container-type:normal;align-self:stretch;border:0;border-radius:0;box-shadow:none}
+    .work-track .work-photo,.work-track .work-video{display:block;width:100%;height:560px;aspect-ratio:auto;object-fit:cover;object-position:center 62%;background:var(--dark-2)}
+    .work-track .vid-label{position:absolute;inset:auto 0 0;min-height:150px;align-items:flex-end;border:0;padding:3rem 2rem 1.75rem;background:linear-gradient(transparent,rgba(5,9,15,.9));color:white;font-size:1.6rem;letter-spacing:.04em;pointer-events:none}
+    .work-stage-tag{position:absolute;top:1.25rem;left:1.25rem;z-index:2;padding:.45rem .8rem;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(9,11,16,.65);backdrop-filter:blur(10px);font-size:.65rem;font-weight:600;letter-spacing:.12em;color:white;text-transform:uppercase;pointer-events:none}
+    .work-stage-tag::before{content:'';display:inline-block;width:6px;height:6px;margin-right:.5rem;background:var(--blue-2);border-radius:50%}
+    .work-controls{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 0}
+    .work-nav{display:flex;align-items:center;gap:.7rem}
+    .work-arrow{width:44px;height:44px;border:1px solid var(--border-b);border-radius:50%;background:var(--dark-card);color:white;font-size:1.3rem;cursor:pointer;transition:background 180ms,transform 180ms}
+    .work-arrow:hover{background:var(--blue);transform:translateY(-2px)}
+    .work-pagination{display:flex;gap:.65rem;min-width:0}
+    .work-pagination button{position:relative;width:76px;height:58px;padding:3px;border:1px solid transparent;border-radius:10px;background:transparent;cursor:pointer;opacity:.5;transition:opacity 180ms,border-color 180ms}
+    .work-pagination button:hover{opacity:1}
+    .work-pagination img{width:100%;height:100%;object-fit:cover;object-position:center 62%;border-radius:6px}
+    .work-pagination button[aria-current="true"]{border-color:var(--blue-2);opacity:1}
+    .work-thumbnail-play{position:absolute;inset:0;display:grid;place-items:center;color:white;font-size:1rem;text-shadow:0 1px 6px black}
+    .work-count{font-size:.75rem;color:var(--muted);min-width:2.6rem;font-variant-numeric:tabular-nums;letter-spacing:.08em}
+    .work-gallery-note{font-size:.75rem;color:var(--muted);margin:0;text-align:right}
+    @media(max-width:640px){
+      .work-track{border-radius:14px}
+      .work-track .work-photo,.work-track .work-video{height:auto;aspect-ratio:4/5;object-position:center 62%}
+      .work-track .vid-label{font-size:1.25rem;padding:3rem 1.25rem 1.25rem}
+      .work-controls{gap:.5rem;flex-wrap:wrap;padding:1rem 0 .5rem}
+      .work-pagination{gap:.3rem}.work-pagination button{width:52px;height:46px}
+      .work-nav{gap:.4rem}.work-arrow{width:38px;height:38px}.work-count{display:none}
+      .work-gallery-note{text-align:left;font-size:.7rem}
+    }
+
+    /* Match the header's automatic slideshow and compact dot navigation. */
+    .work-stage{overflow:hidden;border-radius:16px}
+    .work-controls{position:relative;justify-content:center;gap:1rem;flex-wrap:nowrap;padding:1rem 0}
+    .work-pagination{align-items:center;gap:4px}
+    .work-pagination button{width:28px;height:44px;padding:0;border:0;opacity:1}
+    .work-pagination button::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.3);transition:width 250ms,background 250ms}
+    .work-pagination button[aria-current="true"]{border:0}
+    .work-pagination button[aria-current="true"]::after{width:24px;background:var(--blue-2)}
+    .work-pause{width:44px;height:44px;border:1px solid var(--border-b);border-radius:50%;background:transparent;color:var(--off);cursor:pointer}
+    .work-track .work-video{object-fit:contain;object-position:center;max-height:560px;background:#090b10}
+    .work-track .video-card .vid-label{min-height:0;padding:.9rem 1.25rem;background:rgba(9,11,16,.85);font-size:1rem}
+    @media(max-width:640px){.work-track .work-video{height:auto;aspect-ratio:9/16;max-height:70svh}.work-controls{gap:.4rem}.work-pause{width:38px;height:38px}}
+
+    /* Keep the entire BMW in frame, with less canopy and no dark veil over the paint. */
+    .work-track .showcase-photo .work-photo{object-position:center 90%}
+    .work-track .showcase-photo .vid-label{inset:0 0 auto;min-height:0;padding:4.5rem 1.5rem 2rem;align-items:flex-start;font-size:1.35rem;background:linear-gradient(rgba(5,9,15,.55),transparent);text-shadow:0 2px 12px rgba(0,0,0,.7)}
+    @media(max-width:640px){
+      .work-track .showcase-photo .work-photo{object-position:center 90%}
+      .work-track .showcase-photo .vid-label{padding:4.25rem 1.25rem 1.5rem;font-size:1.15rem}
+    }
+
+    #reviews{padding-top:3rem;padding-bottom:3rem}
+    .reviews-panel{position:relative;display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:center;padding:3rem;border:1px solid rgba(125,179,255,.18);border-radius:20px;background:radial-gradient(ellipse at 0 0,rgba(59,130,246,.11),transparent 65%),var(--dark-2);overflow:hidden}
+    .reviews-panel::before{content:'';position:absolute;top:0;left:3rem;width:52px;height:3px;background:var(--blue-2);border-radius:0 0 3px 3px}
+    .reviews-copy .sec-title{font-size:clamp(2.1rem,3.7vw,3.2rem);line-height:1.08;letter-spacing:0;margin:.8rem 0 1rem}
+    .reviews-copy .sec-title span{color:var(--blue-2)}
+    .reviews-copy .sec-sub{max-width:28rem;line-height:1.7}
+    .reviews-google{padding:1.5rem 0 1.5rem 2.5rem;border-left:1px solid var(--border-b)}
+    .reviews-source{display:flex;align-items:center;gap:.9rem;margin-bottom:1.5rem}
+    .google-mark{display:grid;place-items:center;flex-shrink:0;width:48px;height:48px;background:white;border-radius:12px;border:1px solid rgba(255,255,255,.16)}
+    .reviews-source strong{display:block;font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
+    .reviews-source div>span{display:block;color:var(--muted);font-size:.78rem;margin-top:.15rem}
+    .reviews-google .btn{display:flex;justify-content:space-between;width:100%;letter-spacing:.06em;gap:1.5rem}
+    .reviews-google>p{color:var(--muted);font-size:.76rem;line-height:1.6;margin-top:1rem;max-width:21rem}
+    @media(max-width:760px){.reviews-panel{grid-template-columns:1fr;padding:1.75rem;gap:1.75rem}.reviews-panel::before{left:1.75rem}.reviews-google{border-left:0;border-top:1px solid var(--border-b);padding:1.5rem 0 0}.reviews-copy .sec-title{font-size:2.2rem}.reviews-google>p{max-width:none}}
+
+    /* Shared page rhythm: wide sections, aligned content, and comfortable reading widths. */
+    :root{--max:1440px;--page-gutter:clamp(1.25rem,4vw,5rem);--section-space:clamp(3.5rem,6vw,6rem)}
+    .section{width:100%;padding:var(--section-space) var(--page-gutter)}
+    .nav-inner{padding:.9rem var(--page-gutter)}
+    .topbar-inner{padding:0 calc(var(--page-gutter) - 1.5rem)}
+    .slide{padding-left:var(--page-gutter);padding-right:var(--page-gutter)}
+    .slide-content{max-width:calc(var(--max) - 2 * var(--page-gutter))}
+    .sec-head{margin-bottom:2.25rem}
+    .sec-sub{font-size:1rem;line-height:1.75}
+    .services-grid{gap:1.5rem}
+    .svc-image{height:260px}
+    .svc-body{padding:1.75rem}
+    .svc-card h3{font-size:1.5rem}
+    .svc-card p{font-size:.95rem;line-height:1.75}
+    .about-grid{gap:clamp(2rem,5vw,5rem)}
+    .about-text p{max-width:38rem}
+    .about-video{max-width:430px}
+    .work-carousel{max-width:1100px}
+    .results-grid{gap:2rem}
+    .results-grid>.results-cta{padding:2rem;border-radius:16px;background:linear-gradient(110deg,#1c4c98,#2563c7);border-color:rgba(125,179,255,.3)}
+    /* Reviews become a full-width chapter instead of a floating card. */
+    #reviews{max-width:none;padding:0;background:linear-gradient(115deg,#142237 0%,#101823 48%,#0e131b 100%);border-top:1px solid rgba(125,179,255,.16);border-bottom:1px solid rgba(125,179,255,.16)}
+    .reviews-panel{max-width:var(--max);margin:0 auto;min-height:clamp(380px,55svh,580px);padding:var(--section-space) var(--page-gutter);border:0;border-radius:0;background:transparent;gap:clamp(2rem,5vw,5rem);grid-template-columns:1.2fr 1fr;overflow:visible}
+    .reviews-panel::before{display:none}
+    .reviews-copy .sec-title{font-size:clamp(2.6rem,4vw,4rem);line-height:1.04;margin:1rem 0 1.5rem}
+    .reviews-copy .sec-sub{max-width:34rem;font-size:1.05rem}
+    .reviews-google{padding:2rem 0 2rem 2.5rem}
+    .reviews-google>p{max-width:28rem;font-size:.85rem}
+    .reviews-source strong{font-size:1.2rem}
+    .reviews-source div>span{font-size:.85rem}
+    .reviews-google .btn{padding:1.1rem 1.4rem}
+    #reviews>.review-slider,#reviews>#review-pause{max-width:calc(var(--max) - 2 * var(--page-gutter));margin:1.5rem auto}
+    #contact>.sec-head:not(:first-child){margin-top:4rem}
+    .calendar-card{padding:1.25rem;background:#141b25;border-color:var(--border-b)}
+    .calendar-card-head{padding:1rem 1rem 1.5rem}
+    .form-card{padding:2rem;background:#141b25;border-color:var(--border-b)}
+    .contact-grid{gap:2rem;grid-template-columns:1.1fr 1fr}
+    .contact-info-stack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .contact-info-stack .info-card:first-child{grid-column:1/-1}
+    .info-card{padding:1.4rem;min-width:0;background:#141b25;border-left:1px solid var(--border-b)}
+    .info-value{overflow-wrap:anywhere}.info-sub{font-weight:400;line-height:1.65}
+    .info-card:first-child{border-top:2px solid var(--blue)}
+    .footer-top{padding:3.5rem var(--page-gutter)}
+    .footer-top-inner{max-width:calc(var(--max) - 2 * var(--page-gutter))}
+    @media(max-width:1024px){.contact-grid{grid-template-columns:1fr}.reviews-panel{gap:2rem}.reviews-google{padding-left:1.75rem}.svc-image{height:220px}}
+    @media(max-width:760px){
+      .reviews-panel{grid-template-columns:1fr;min-height:0;padding:3.5rem var(--page-gutter);gap:2rem}
+      .reviews-copy .sec-title{font-size:clamp(2.5rem,7vw,3.5rem)}
+      .reviews-google{padding:1.75rem 0 0;border-left:0;border-top:1px solid var(--border-b)}
+      .reviews-copy .sec-sub{font-size:1rem}
+      .results-grid>.results-cta{grid-template-columns:1fr;padding:1.5rem}
+      .results-cta .results-cta-btns{grid-column:1;grid-row:auto;margin-top:1.25rem}
+      .form-card{padding:1.5rem}.calendar-card{padding:.5rem}
+      .calendar-card-head{padding:1rem .5rem}
+      .svc-body{padding:1.5rem}
+    }
+    @media(max-width:480px){.contact-info-stack{grid-template-columns:1fr}.slide h1{font-size:clamp(3rem,13vw,4rem)}.slide p{font-size:1rem}.float-cta{right:1rem;bottom:1rem}.footer-bottom{padding-bottom:5rem}}
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- TOPBAR -->
   <div class="topbar">
@@ -801,7 +966,7 @@
         <a href="#quote-form">Contact</a>
       </nav>
       <button class="btn btn-blue nav-desktop-btn" onclick="document.getElementById('booking-calendar').scrollIntoView({behavior:'smooth'})">Book</button>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -819,6 +984,7 @@
     <a href="tel:6313797842" style="color:var(--blue-2);font-size:1.4rem;margin-top:.5rem">631-379-7842</a>
   </div>
 
+  <main id="main-content">
   <!-- HERO SLIDER -->
   <section class="hero" id="top">
     <div class="slides" id="slides">
@@ -873,13 +1039,125 @@
     </div>
   </section>
 
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stats-inner">
-      <div class="stat-cell"><div class="stat-num" data-target="100">0</div><div class="stat-label">Cars Detailed</div></div>
-      <div class="stat-cell"><div class="stat-num" data-target="5">0</div><div class="stat-label">Star Reputation</div></div>
-      <div class="stat-cell"><div class="stat-num" data-target="100">0</div><div class="stat-label">% Satisfaction</div></div>
-      <div class="stat-cell"><div class="stat-num" data-target="7">0</div><div class="stat-label">Days a Week</div></div>
+  <!-- RESULTS -->
+  <div style="background:var(--dark)">
+    <div class="section" id="results">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-kicker">The Work</div>
+          <h2 class="sec-title">Real Results</h2>
+          <p class="sec-sub">No filters and no edits. See the actual work and explore recent results on our Instagram.</p>
+        </div>
+        <button class="btn btn-ghost reveal reveal-d1" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">See More on IG →</button>
+      </div>
+
+      <div class="results-grid reveal">
+        <div class="work-carousel" role="region" aria-roledescription="carousel" aria-label="Rick's detailing results">
+          <div class="work-stage">
+          <div class="work-stage-tag">Detailed by Rick · Long Island</div>
+          <div class="work-track" id="work-track" tabindex="0" aria-label="Results gallery. Use left and right arrow keys to change slides.">
+
+        <figure class="vid-card" role="group" aria-roledescription="slide" aria-label="1 of 4">
+          <a href="assets/work/rick-detail-5659.jpg" target="_blank" rel="noopener" aria-label="View full photo of the blue Acura exterior">
+            <img class="work-photo" src="assets/work/rick-detail-5659.jpg" alt="Blue Acura with glossy paint and polished wheels after Rick's detail" width="1200" height="1600" loading="lazy" decoding="async"/>
+          </a>
+          <figcaption class="vid-label">Acura · Exterior Shine</figcaption>
+        </figure>
+
+        <figure class="vid-card" role="group" aria-roledescription="slide" aria-label="2 of 4">
+          <a href="assets/work/rick-detail-5769.jpg" target="_blank" rel="noopener" aria-label="View full photo of the BMW interior">
+            <img class="work-photo" src="assets/work/rick-detail-5769.jpg" alt="Detailed BMW interior with tan leather seats, clean dashboard, and center console" width="1200" height="1600" loading="lazy" decoding="async"/>
+          </a>
+          <figcaption class="vid-label">BMW · Interior Refresh</figcaption>
+        </figure>
+
+
+        <figure class="vid-card video-card results-video reveal" role="group" aria-roledescription="slide" aria-label="3 of 4">
+          <video class="work-video" data-scroll-video muted loop playsinline disablepictureinpicture disableremoteplayback tabindex="-1" preload="metadata" poster="assets/work/rick-detail-5376-poster.jpg" aria-label="Video of Rick's detailing work">
+            <source src="assets/work/rick-detail-5376.mp4" type="video/mp4"/>
+            Rick's detailing work.
+          </video>
+          <figcaption class="vid-label">A Closer Look · Rick's Work</figcaption>
+        </figure>
+
+        <figure class="vid-card showcase-photo reveal" role="group" aria-roledescription="slide" aria-label="4 of 4">
+          <a href="assets/work/rick-detail-5651.jpg" target="_blank" rel="noopener" aria-label="View full photo of the black BMW at night">
+            <img class="work-photo" src="assets/work/rick-detail-5651.jpg" alt="Black BMW under gas station lights at night, showing its glossy exterior" width="1800" height="2400" loading="lazy" decoding="async"/>
+          </a>
+          <figcaption class="vid-label">BMW · Nighttime Shine</figcaption>
+        </figure>
+          </div>
+          </div>
+          <div class="work-controls">
+            <button class="work-arrow" id="work-prev" type="button" aria-label="Previous result" aria-controls="work-track">←</button>
+            <div class="work-pagination" aria-label="Choose a result">
+              <button type="button" aria-label="Show result 1" aria-current="true" data-work-slide="0"></button>
+              <button type="button" aria-label="Show result 2" data-work-slide="1"></button>
+              <button type="button" aria-label="Show result 3" data-work-slide="2"></button>
+              <button type="button" aria-label="Show result 4" data-work-slide="3"></button>
+            </div>
+            <button class="work-arrow" id="work-next" type="button" aria-label="Next result" aria-controls="work-track">→</button>
+            <button class="work-pause" id="work-pause" type="button" aria-label="Pause results slideshow" aria-pressed="false">Ⅱ</button>
+          </div>
+        </div>
+
+        <div class="results-cta">
+          <div class="sec-kicker" style="color:rgba(255,255,255,.7)">Want This?</div>
+          <h3>Your Car Next.</h3>
+          <p>Have a question about your vehicle? Text a photo and your town for a custom quote.</p>
+          <div class="results-cta-btns">
+            <a class="btn btn-white" href="sms:6313797842">Text Photos for a Quote</a>
+            <button class="btn-white-outline" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">DM on IG</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div style="background:var(--dark)">
+    <div class="section" id="services">
+      <div class="sec-head reveal">
+        <div>
+          <div class="sec-kicker">What We Offer</div>
+          <h2 class="sec-title">Our Main Services</h2>
+          <p class="sec-sub">Find your fresh start. Prices vary with vehicle size, condition, and add-ons. Select a service in the calendar for timing and availability.</p>
+        </div>
+        <span style="display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border-b);border-radius:6px;padding:.45rem .95rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-2);background:var(--blue-dim)" class="reveal reveal-d1">Serving All Long Island</span>
+      </div>
+
+      <div class="services-grid">
+        <div class="svc-card reveal">
+          <div class="svc-bar"></div>
+          <img class="svc-image" src="assets/work/rick-detail-5659.jpg" alt="Clean blue Acura exterior" width="1200" height="1600" loading="lazy" decoding="async"/>
+          <div class="svc-body">
+            <h3>Regular Exterior</h3>
+            <div class="svc-price">$120<sub>starting at</sub></div>
+            <p>A fresh look for your daily driver. A careful exterior clean at your location.</p><a class="service-link" href="#booking-calendar">Explore Regular Exterior <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <div class="svc-card reveal reveal-d1">
+          <div class="svc-bar"></div>
+          <img class="svc-image" src="assets/work/rick-detail-5651.jpg" alt="Glossy black BMW exterior" width="1200" height="1600" loading="lazy" decoding="async"/>
+          <div class="svc-body">
+            <h3>Premium Exterior</h3>
+            <div class="svc-price">$150<sub>starting at</sub></div>
+            <p>Extra attention for an exterior that needs a deeper clean and a stronger finish.</p><a class="service-link" href="#booking-calendar">Explore Premium Exterior <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <div class="svc-card reveal reveal-d2">
+          <div class="svc-bar"></div>
+          <img class="svc-image" src="assets/work/rick-detail-5769.jpg" alt="Freshly detailed BMW interior" width="1200" height="1600" loading="lazy" decoding="async"/>
+          <div class="svc-body">
+            <h3>Full Mobile Detail</h3>
+            <div class="svc-price">$200<sub>starting at</sub></div>
+            <p>Inside and out, refreshed. Complete interior and exterior care without the drop-off.</p><a class="service-link" href="#booking-calendar">Explore Full Mobile Detail <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -891,7 +1169,7 @@
           <div class="sec-kicker">Who We Are</div>
           <h2>Long Island's <span>Mobile Detail</span> Specialists</h2>
           <p>Rick's Clean Whips is a mobile detailing service built for car people. We come to your driveway, office, or parking lot and treat every vehicle with the same care we give our own.</p>
-          <p>No overpriced shop. No waiting. Just clean results delivered fast. Send a couple pics of your car, get a quote the same day, and we'll book a time that works for you.</p>
+          <p>Choose a package and book online, or text a few photos of your vehicle for a custom quote. We’ll help you choose the right care for your car.</p>
           <div class="about-badges">
             <div class="badge">Paint-Safe Wash</div>
             <div class="badge">Interior Deep Clean</div>
@@ -914,194 +1192,20 @@
     </div>
   </div>
 
-  <!-- SERVICES -->
-  <div style="background:var(--dark)">
-    <div class="section" id="services">
-      <div class="sec-head reveal">
-        <div>
-          <div class="sec-kicker">What We Offer</div>
-          <h2 class="sec-title">Our Main Services</h2>
-          <p class="sec-sub">Straightforward packages with professional results. Service recommendations are based on your vehicle's size and condition. Send us a photo for a custom recommendation.</p>
-        </div>
-        <span style="display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--border-b);border-radius:6px;padding:.45rem .95rem;font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-2);background:var(--blue-dim)" class="reveal reveal-d1">Serving All Long Island</span>
-      </div>
-
-      <div class="services-grid">
-        <div class="svc-card reveal">
-          <div class="svc-bar"></div>
-          <div class="svc-thumb">
-            <div class="svc-thumb-icon">
-              <svg fill="none" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
-            </div>
-          </div>
-          <div class="svc-body">
-            <h3>Regular Exterior</h3>
-            <div class="svc-price">$120<sub>starting at</sub></div>
-            <p>A thorough exterior detail that resets your car's look. Final price adjusts for size and condition.</p>
-          </div>
-        </div>
-
-        <div class="svc-card reveal reveal-d1">
-          <div class="svc-bar"></div>
-          <div class="svc-thumb">
-            <div class="svc-thumb-icon">
-              <svg fill="none" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
-            </div>
-          </div>
-          <div class="svc-body">
-            <h3>Premium Exterior</h3>
-            <div class="svc-price">$150<sub>starting at</sub></div>
-            <p>Deeper clean, stronger finish. Ideal for cars that need more attention or have heavier contamination.</p>
-          </div>
-        </div>
-
-        <div class="svc-card reveal reveal-d2">
-          <div class="svc-bar"></div>
-          <div class="svc-thumb">
-            <div class="svc-thumb-icon">
-              <svg fill="none" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
-            </div>
-          </div>
-          <div class="svc-body">
-            <h3>Full Mobile Detail</h3>
-            <div class="svc-price">$200<sub>starting at</sub></div>
-            <p>Complete interior and exterior at your location. Price adjusts for add-ons, vehicle size, and condition.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WHY US -->
-  <div class="section-alt">
-    <div class="section">
-      <div class="why-grid">
-        <div class="why-left reveal">
-          <div class="sec-kicker">Why Rick's</div>
-          <h2>Choose Rick's for <span>Unmatched</span> Results</h2>
-          <p>We combine technical skill with a personal touch. Every vehicle receives careful attention, thorough service, and a finish we are proud to stand behind.</p>
-          <div class="why-features">
-            <div class="why-feat">
-              <div class="why-feat-icon">
-                <svg fill="none" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
-              </div>
-              <div>
-                <h4>We Come to You</h4>
-                <p>No drop-off needed. We show up at your driveway, office, or wherever and get the job done while you carry on with your day.</p>
-              </div>
-            </div>
-            <div class="why-feat">
-              <div class="why-feat-icon">
-                <svg fill="none" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
-              </div>
-              <div>
-                <h4>Attention to Detail</h4>
-                <p>We don't rush. Every panel, every crevice, every surface gets the time it needs. That's why the results speak for themselves.</p>
-              </div>
-            </div>
-            <div class="why-feat">
-              <div class="why-feat-icon">
-                <svg fill="none" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-              </div>
-              <div>
-                <h4>Fast Quotes, Same Day</h4>
-                <p>Text us a few photos of your car and your location. We'll shoot back a quote fast and lock in a time that works for you.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="why-right reveal reveal-d2">
-          <div class="why-stat-card">
-            <div class="why-stat-num">100+</div>
-            <div class="why-stat-label">Cars Detailed on Long Island</div>
-          </div>
-          <div class="why-stat-card">
-            <div class="why-stat-num">5★</div>
-            <div class="why-stat-label">Customer Rating</div>
-          </div>
-          <div class="why-stat-card">
-            <div class="why-stat-num">100%</div>
-            <div class="why-stat-label">Client Satisfaction</div>
-          </div>
-          <div class="why-stat-card">
-            <div class="why-stat-num">7</div>
-            <div class="why-stat-label">Days a Week Available</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- RESULTS -->
-  <div style="background:var(--dark)">
-    <div class="section" id="results">
-      <div class="sec-head reveal">
-        <div>
-          <div class="sec-kicker">The Work</div>
-          <h2 class="sec-title">Real Results</h2>
-          <p class="sec-sub">No filters and no edits. See the actual work and explore recent results on our Instagram.</p>
-        </div>
-        <button class="btn btn-ghost reveal reveal-d1" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">See More on IG →</button>
-      </div>
-
-      <div class="results-grid reveal">
-        <figure class="vid-card">
-          <a href="assets/work/rick-detail-5659.jpg" target="_blank" rel="noopener" aria-label="View full photo of the blue Acura exterior">
-            <img class="work-photo" src="assets/work/rick-detail-5659.jpg" alt="Blue Acura with glossy paint and polished wheels after Rick's detail" width="1200" height="1600" loading="lazy" decoding="async"/>
-          </a>
-          <figcaption class="vid-label">Acura · Exterior Shine</figcaption>
-        </figure>
-
-        <figure class="vid-card">
-          <a href="assets/work/rick-detail-5769.jpg" target="_blank" rel="noopener" aria-label="View full photo of the BMW interior">
-            <img class="work-photo" src="assets/work/rick-detail-5769.jpg" alt="Detailed BMW interior with tan leather seats, clean dashboard, and center console" width="1200" height="1600" loading="lazy" decoding="async"/>
-          </a>
-          <figcaption class="vid-label">BMW · Interior Refresh</figcaption>
-        </figure>
-
-        <div class="results-cta">
-          <div class="sec-kicker" style="color:rgba(255,255,255,.7)">Want This?</div>
-          <h3>Your Car Next.</h3>
-          <p>Send a photo of your vehicle and your city. We will get back to you promptly with a quote.</p>
-          <div class="results-cta-btns">
-            <button class="btn-white" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Now</button>
-            <button class="btn-white-outline" onclick="window.open('https://www.instagram.com/rickscleanwhips','_blank')">DM on IG</button>
-          </div>
-        </div>
-
-        <div class="results-featured">
-        <figure class="vid-card video-card results-video reveal">
-          <video class="work-video" data-scroll-video muted loop playsinline disablepictureinpicture disableremoteplayback tabindex="-1" preload="metadata" poster="assets/work/rick-detail-5376-poster.jpg" aria-label="Video of Rick's detailing work">
-            <source src="assets/work/rick-detail-5376.mp4" type="video/mp4"/>
-            Rick's detailing work.
-          </video>
-          <figcaption class="vid-label">A Closer Look · Rick's Work</figcaption>
-        </figure>
-
-        <figure class="vid-card showcase-photo reveal">
-          <a href="assets/work/rick-detail-5651.jpg" target="_blank" rel="noopener" aria-label="View full photo of the black BMW at night">
-            <img class="work-photo" src="assets/work/rick-detail-5651.jpg" alt="Black BMW under gas station lights at night, showing its glossy exterior" width="1800" height="2400" loading="lazy" decoding="async"/>
-          </a>
-          <figcaption class="vid-label">BMW · Nighttime Shine</figcaption>
-        </figure>
-        </div>
-
-
-      </div>
-    </div>
-  </div>
-
   <!-- REVIEWS -->
   <div style="background:var(--dark)">
     <div class="section" id="reviews">
-      <div class="sec-head reveal">
-        <div>
-          <div class="sec-kicker">What Clients Say</div>
-          <h2 class="sec-title">Google Reviews</h2>
-          <p class="sec-sub">See what customers are saying about Rick's Clean Whips on Google.</p>
+      <div class="reviews-panel reveal">
+        <div class="reviews-copy">
+          <div class="sec-kicker">From our customers</div>
+          <h2 class="sec-title">The details matter.<br><span>So does your experience.</span></h2>
+          <p class="sec-sub">Get to know Rick's Clean Whips through the people who trust us with their cars.</p>
         </div>
-        <a class="btn btn-blue" href="https://share.google/LTJ5YBNYbcaR9AiTS" target="_blank" rel="noopener">Read Reviews on Google ↗</a>
+        <div class="reviews-google">
+          <div class="reviews-source"><span class="google-mark" aria-hidden="true"><svg viewBox="0 0 48 48" width="32" height="32" focusable="false"><path fill="#4285F4" d="M43.61 24.46c0-1.36-.12-2.66-.35-3.92H24v7.42h11a9.4 9.4 0 0 1-4.08 6.18v5.13h6.61c3.87-3.57 6.08-8.84 6.08-14.81Z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.82 13.47-4.93l-6.61-5.13c-1.83 1.23-4.18 1.96-6.86 1.96-5.3 0-9.79-3.58-11.39-8.39H5.78v5.3A20 20 0 0 0 24 44Z"/><path fill="#FBBC05" d="M12.61 27.51a12 12 0 0 1 0-7.02v-5.3H5.78a20 20 0 0 0 0 17.62l6.83-5.3Z"/><path fill="#EA4335" d="M24 12.1c2.99 0 5.67 1.03 7.78 3.05l5.84-5.84A19.57 19.57 0 0 0 24 4 20 20 0 0 0 5.78 15.19l6.83 5.3C14.21 15.68 18.7 12.1 24 12.1Z"/></svg></span><div><strong>Google Reviews</strong><span>Customer experiences, in their own words.</span></div></div>
+          <a class="btn btn-blue" href="https://share.google/LTJ5YBNYbcaR9AiTS" target="_blank" rel="noopener">Read customer reviews <span aria-hidden="true">↗</span></a>
+          <p>Have we detailed your car? Share your experience on our Google profile.</p>
+        </div>
       </div>
       <button class="btn btn-ghost" id="review-pause" type="button" aria-pressed="false" aria-controls="review-slider" hidden>Pause Reviews</button>
       <div class="review-slider" id="review-slider" role="region" aria-label="Customer reviews" tabindex="0" hidden>
@@ -1175,7 +1279,7 @@
             <div class="info-label">Phone / Text</div>
             <div class="info-value"><a href="tel:6313797842">631-379-7842</a></div>
             <div class="info-sub">Text is fastest. Include a photo of your vehicle.</div>
-            <div class="avail">Available now</div>
+            <a class="availability-link" href="#booking-calendar">Check availability ↗</a>
           </div>
           <div class="info-card">
             <div class="info-label">Instagram</div>
@@ -1201,6 +1305,8 @@
       </div>
     </div>
   </div>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -1229,7 +1335,6 @@
           <ul>
             <li><a href="#services">Regular Exterior</a></li>
             <li><a href="#services">Premium Exterior</a></li>
-            <li><a href="#services">Shop Detail</a></li>
             <li><a href="#services">Full Mobile Detail</a></li>
           </ul>
         </div>
@@ -1332,6 +1437,77 @@
     document.addEventListener('visibilitychange', () => scrollVideos.forEach(syncVideo));
     motionPreference.addEventListener('change', () => scrollVideos.forEach(syncVideo));
 
+    // Results gallery: manual navigation and native touch swiping.
+    const workTrack = document.getElementById('work-track');
+    const workSlides = [...workTrack.children];
+    const workDots = [...document.querySelectorAll('[data-work-slide]')];
+    let workIndex = 0;
+    function showWork(index) {
+      const next = (index + workSlides.length) % workSlides.length;
+      workTrack.scrollTo({ left: workSlides[next].offsetLeft - workSlides[0].offsetLeft,
+        behavior: motionPreference.matches ? 'instant' : 'smooth' });
+    }
+    document.getElementById('work-prev').addEventListener('click', () => showWork(workIndex - 1));
+    document.getElementById('work-next').addEventListener('click', () => showWork(workIndex + 1));
+    workDots.forEach((dot, index) => dot.addEventListener('click', () => showWork(index)));
+    workTrack.addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+        event.preventDefault();
+        showWork(workIndex + (event.key === 'ArrowRight' ? 1 : -1));
+      }
+    });
+    let workFrame;
+    workTrack.addEventListener('scroll', () => {
+      cancelAnimationFrame(workFrame);
+      workFrame = requestAnimationFrame(() => {
+        workIndex = Math.max(0, Math.min(workSlides.length - 1, Math.round(workTrack.scrollLeft / workTrack.clientWidth)));
+        workDots.forEach((dot, index) => {
+          if (index === workIndex) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
+        });
+
+      });
+    }, { passive: true });
+    new ResizeObserver(() => {
+      workTrack.scrollTo({left: workIndex * workTrack.clientWidth, behavior: 'instant'});
+    }).observe(workTrack);
+
+    // Advance like the header, pausing during interaction and offscreen.
+    const workCarousel = document.querySelector('.work-carousel');
+    const workPause = document.getElementById('work-pause');
+    let workPaused = false;
+    let workOnscreen = false;
+    let workTimer;
+    function scheduleWork() {
+      clearTimeout(workTimer);
+      if (workPaused || !workOnscreen || document.hidden || motionPreference.matches ||
+          workCarousel.matches(':hover') || workCarousel.contains(document.activeElement)) return;
+      workTimer = setTimeout(() => {
+        showWork(workIndex + 1);
+        scheduleWork();
+      }, workSlides[workIndex].querySelector('video') ? 10000 : 5000);
+    }
+    workPause.addEventListener('click', () => {
+      workPaused = !workPaused;
+      workPause.setAttribute('aria-pressed', String(workPaused));
+      workPause.setAttribute('aria-label', workPaused ? 'Play results slideshow' : 'Pause results slideshow');
+      workPause.textContent = workPaused ? '▶' : 'Ⅱ';
+      scheduleWork();
+    });
+    workCarousel.addEventListener('mouseenter', () => clearTimeout(workTimer));
+    workCarousel.addEventListener('mouseleave', scheduleWork);
+    workCarousel.addEventListener('focusin', () => clearTimeout(workTimer));
+    workCarousel.addEventListener('focusout', () => requestAnimationFrame(scheduleWork));
+    workTrack.addEventListener('scroll', scheduleWork, {passive:true});
+    workTrack.addEventListener('touchstart', () => clearTimeout(workTimer), {passive:true});
+    workTrack.addEventListener('touchend', scheduleWork, {passive:true});
+    document.addEventListener('visibilitychange', scheduleWork);
+    motionPreference.addEventListener('change', scheduleWork);
+    new IntersectionObserver(entries => {
+      workOnscreen = entries[0].isIntersecting;
+      scheduleWork();
+    }, {threshold:0.2}).observe(workCarousel);
+
     // Hero slider
     let cur = 0;
     const slidesEl = document.getElementById('slides');
@@ -1348,33 +1524,23 @@
       timer = setInterval(() => goTo((cur + 1) % 3), 5000);
     }));
 
-    // Stats counter
-    function animateCounters() {
-      document.querySelectorAll('.stat-num[data-target]').forEach(el => {
-        const target = +el.dataset.target;
-        const label = el.closest('.stat-cell').querySelector('.stat-label').textContent;
-        const suffix = label.includes('Star') ? '★' : label.includes('Satisfaction') ? '%' : label.includes('Week') ? '' : '+';
-        let start = 0;
-        const step = target / 40;
-        const id = setInterval(() => {
-          start = Math.min(start + step, target);
-          el.textContent = Math.round(start) + suffix;
-          if (start >= target) clearInterval(id);
-        }, 30);
-      });
-    }
-    const statsObs = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) { animateCounters(); statsObs.disconnect(); }
-    }, { threshold: 0.3 });
-    statsObs.observe(document.querySelector('.stats-bar'));
-
     // Hamburger / mobile menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileClose = document.getElementById('mobile-menu-close');
-    function openMenu() { mobileMenu.classList.add('open'); hamburger.classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function closeMenu() { mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); document.body.style.overflow = ''; }
-    hamburger.addEventListener('click', openMenu);
+    function openMenu() { mobileMenu.classList.add('open'); hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; mobileClose.focus(); }
+    function closeMenu() { mobileMenu.classList.remove('open'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; hamburger.focus(); }
+    hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+    document.addEventListener('keydown', event => {
+      if (!mobileMenu.classList.contains('open')) return;
+      if (event.key === 'Escape') closeMenu();
+      if (event.key === 'Tab') {
+        const items = [hamburger, ...mobileMenu.querySelectorAll('button, a')];
+        const first = items[0], last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    });
     mobileClose.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', closeMenu));
 
